@@ -29,7 +29,7 @@ public class Card {
 	{
 		faceName = face;
 		faceValue = value;
-		cardImage = card;
+		this.cardImage = card;
 		
 	}
 	
@@ -42,21 +42,20 @@ public class Card {
 	{
 		return faceValue;
 	}
-	
+
 	public static void main(String[] args) throws IOException
 	{
 		Card letterB = new Card("B",15,ImageIO.read(new File("letterB.png")));
 		
-		System.out.println("The letter " + letterB.toString() + " has a value of " + letterB.faceValue);
+		System.out.println("The letter " + letterB.toString() + " has a value of " + letterB.getfaceValue());
 		
 		JFrame window = new JFrame("Display card");
 		window.setSize(400,600);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setVisible(true);
-		
+				
 		JPanel contentPane = new JPanel(new BorderLayout());
 		
-		JLabel cardLabel = new JLabel(new ImageIcon(letterB.getCardImage()));
+		JLabel cardLabel = new JLabel(new ImageIcon(letterB.cardImage));
 		cardLabel.setSize(300,400);
 		
 		contentPane.add(cardLabel);
